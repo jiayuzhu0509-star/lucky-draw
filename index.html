@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幸运抽奖</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎉 幸运抽奖 🎉</h1>
+            <p class="subtitle">开启你的惊喜时刻</p>
+        </header>
+
+        <main>
+            <section class="participants-section">
+                <h2>👥 添加参与者</h2>
+                <div class="input-group">
+                    <textarea 
+                        id="participantsInput" 
+                        placeholder="请输入参与者姓名，每行一个..."
+                    ></textarea>
+                    <div class="button-group">
+                        <button id="addBtn" class="btn btn-primary">添加参与者</button>
+                        <button id="clearBtn" class="btn btn-secondary">清空列表</button>
+                    </div>
+                </div>
+                <div class="count-display">
+                    当前参与者: <span id="totalCount">0</span> 人
+                </div>
+            </section>
+
+            <section class="prize-section">
+                <h2>🏆 设置奖项</h2>
+                <div class="prize-config">
+                    <div class="form-group">
+                        <label for="prizeName">奖项名称:</label>
+                        <input type="text" id="prizeName" placeholder="如: 一等奖" value="一等奖">
+                    </div>
+                    <div class="form-group">
+                        <label for="prizeCount">中奖人数:</label>
+                        <input type="number" id="prizeCount" min="1" max="100" value="1">
+                    </div>
+                </div>
+            </section>
+
+            <section class="draw-section">
+                <button id="drawBtn" class="btn btn-lucky">
+                    <span class="btn-text">开始抽奖</span>
+                    <span class="btn-subtext">点击抽取幸运儿</span>
+                </button>
+            </section>
+
+            <section class="result-section">
+                <h2>🎊 中奖名单</h2>
+                <div id="results" class="results-container">
+                    <div class="empty-state">还没有人中奖，快来抽奖吧！</div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 幸运抽奖 | 让运气降临到每个人身上</p>
+        </footer>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">中奖公告</h3>
+            </div>
+            <div class="modal-body">
+                <div id="winnerNames" class="winner-names"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="confirmBtn" class="btn btn-primary">确认</button>
+                <button id="closeModalBtn" class="btn btn-secondary">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
